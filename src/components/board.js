@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react'
 import Square from './square'
+import './components.css'
 
 const Board = () => {
     const initialSquars = [
