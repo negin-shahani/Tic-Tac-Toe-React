@@ -2,8 +2,7 @@ import React,{ Component} from 'react'
 import './components.css'
 
 class Square extends Component {
-    render() {
-        
+    render() { 
         return (
             <button className="square"
                 onClick={this.props.onClickEvent}>
