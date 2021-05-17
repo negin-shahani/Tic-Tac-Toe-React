@@ -5,9 +5,10 @@ body, html {
     height: 100%;
 }
 body{
-    /* background-color: #050f2c ; */
-    background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background-color: #171717 ;
+    /* background: rgba(29, 29, 29, 0.7); */
+    /* background: rgb(238,174,202); */
+    /* background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); */
     min-width: 320px;
     margin:20px;
     font-family: 32px "Century Gothic" , Futura , sans-serif;
@@ -21,7 +22,8 @@ body{
     width: 280px;
     padding: 20px 0;
     font-size: 0.9375em;
-    background-color: #1d1d1d;
+    background: purple;
+    /* background: rgba(29, 29, 29, 0.7); */
     color: white;
     overflow-y: auto;
     transition: right 0.2s;
@@ -80,15 +82,18 @@ body{
   }
   .game-control .game-control-info {
     margin-right: 15px;
-    font-size: 0.8em;
+    font-size: 1em;
     opacity: 0;
     transition: opacity 0.2s;
+    color: rgba(148,187,233,1);
+    font-weight: bold;
+
   }
   .game-control .more-button {
     display: inline-block;
     padding: 5px 12px;
     font-weight: bold;
-    background-color: #690099;
+    background-color: rgba(148,187,233,1);
     border-radius: 50px;
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -211,9 +216,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-
     background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, purple 100%);
+    /*  */
     color: white;
     border: 3px solid #999;
     padding: 0;
@@ -231,11 +236,12 @@ body{
 .square:focus{
     outline: none;
 }
+
 .square.winner {
     position: relative;
     z-index: 1;
     background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, purple 100%);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     border-color: #be33ff;
   }
 
