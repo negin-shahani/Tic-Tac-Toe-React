@@ -42,21 +42,28 @@ class Game extends Component {
         });
     }
     render() {
+        const history = this.state.history;
+        const current = history[this.state.stepNumber];
+        const winner = calculateWinner(current.squares);
+        let Draw = isDraw(current.squares);
+
         return (
             <div className="game">
                 Tic Tac Toe
-            <Board />
-                {/* <Board
-                    className={"game-board" + (isDraw ? " draw" : "")}
+                <Board
+                    // className={"game-board" + (isDraw ? " draw" : "")}
                     squares={current.squares}
-                    line={line}
+                    // line={line}
                     onClick={i => this.handleClick(i)}
-                /> */}
+                />
             </div>
         );
     }
 }
-
+function isDraw(squares) {
+    const nullFinder = squares.filter(x => x === null);
+    return nullFinder.length === 0;
+}
 function calculateMovePosition(i) {
     const row = Math.floor(i / 3) + 1;
     const col = (i % 3) + 1;
