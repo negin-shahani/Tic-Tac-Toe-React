@@ -58,7 +58,10 @@ class Game extends Component {
         } else {
             status = "Next player: " + (this.state.xIsNext ? "X" : "O");
         }
-
+        
+        if (this.state.sortDesc) {
+            moves.reverse();
+        }
         const moves = history.map((moveArray, moveindex) => {
             const lable = moveindex ? `Go to move #${moveindex}` : "Go to game start";
             const colRowInfo = moveArray.lastMove[0]
