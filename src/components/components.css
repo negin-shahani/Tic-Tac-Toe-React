@@ -12,6 +12,34 @@ body{
     margin:20px;
     font-family: 32px "Century Gothic" , Futura , sans-serif;
 }
+.sort-button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .sort-button:focus {
+    outline: none;
+  }
+  .sort-button.desc {
+    transform: scaleY(-1);
+  }
+  .sort-button svg {
+    width: 16px;
+    height: 16px;
+  }
+  .sort-button svg path.secondary {
+    fill: rgba(255, 255, 255, 0.5);
+  }
+  .sort-button svg path.primary {
+    fill: white;
+  }
 .game{
     position: relative;
     display: flex;
