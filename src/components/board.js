@@ -36,7 +36,7 @@ class Board extends Component {
             <Square
                 value={this.props.squares[i]}
                 key={"square-" + i}
-                onClickEvent={() => { this.props.handleClickEvent(i) }}
+                onClick={() => this.props.onClick(i)}
                 isWinner={iswinner}
             />
         );
@@ -70,7 +70,7 @@ class Board extends Component {
         return (
             <div className="" >
                 {/* <div className="status" >{status}</div> */}
-                {/* <div className={this.props.className}>{this.createBoard()}</div> */}
+                <div className={this.props.className}>{this.createBoard()}</div>
             </div>
         );
     }
