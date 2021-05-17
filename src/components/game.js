@@ -61,13 +61,14 @@ class Game extends Component {
 
         return (
             <div className="game">
-                Tic Tac Toe
-                <Board
-                    className={"game-board" + (Draw ? " draw" : "")}
-                    squares={current.squares}
-                    line={line}
-                    onClick={i => this.handleClick(i)}
-                />
+                <div className="game-board-wrapper">
+                    <Board
+                        className={"game-board" + (Draw ? " draw" : "")}
+                        squares={current.squares}
+                        line={line}
+                        onClick={i => this.handleClick(i)}
+                    />
+                </div>
             </div>
         );
     }
