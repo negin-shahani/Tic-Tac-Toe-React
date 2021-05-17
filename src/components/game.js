@@ -59,6 +59,25 @@ class Game extends Component {
             status = "Next player: " + (this.state.xIsNext ? "X" : "O");
         }
 
+        const moves = history.map((moveArray, moveindex) => {
+            const lable = moveindex ? `Go to move #${moveindex}` : "Go to game start";
+            const colRowInfo = moveArray.lastMove[0]
+                ? `col:${moveArray.lastMove[0]}, row:${moveArray.lastMove[1]}`
+                : null;
+
+            return (
+                <li
+                    key={moveindex}
+                    className={moveindex === this.state.stepNumber ? "active" : null}
+                >
+                    <button onClick={() => this.jumpTo(moveindex)}>
+                        {lable}
+                        {colRowInfo ? <span>{colRowInfo}</span> : null}
+                    </button>
+                </li>
+            );
+        });
+        
         return (
             <div className="game">
                 <div className="game-board-wrapper">
