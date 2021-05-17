@@ -35,6 +35,7 @@ const Board = () => {
         return (
             <Square 
                 value={squars[i]}
+                key={"square-" + i}
                 onClickEvent={() => { handleClickEvent(i) }}
                 isWinner={isWinner}
             />
