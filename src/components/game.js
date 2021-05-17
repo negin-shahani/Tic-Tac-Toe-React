@@ -42,6 +42,18 @@ class Game extends Component {
             xIsNext: !this.state.xIsNext
         });
     }
+    jumpTo (step){
+        const next = step % 2 === 0;
+        this.setState({
+            stepNumber: step,
+            xIsNext: next
+        });
+    }
+    handleClickOnSorting (pos){
+        this.setState({
+            sortDesc: !pos
+        });
+    }
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
@@ -60,9 +72,7 @@ class Game extends Component {
             status = "Next player: " + (this.state.xIsNext ? "X" : "O");
         }
 
-        if (this.state.sortDesc) {
-            moves.reverse();
-        }
+        
         const moves = history.map((moveArray, moveindex) => {
             const lable = moveindex ? `Go to move #${moveindex}` : "Go to game start";
             const colRowInfo = moveArray.lastMove[0]
@@ -81,19 +91,10 @@ class Game extends Component {
                 </li>
             );
         });
-        const jumpTo = (step) => {
-            const next = step % 2 === 0;
-            this.setState({
-                stepNumber: step,
-                xIsNext: next
-            });
+        if (this.state.sortDesc) {
+            moves.reverse();
         }
-
-        const handleClickOnSorting = (pos) => {
-            this.setState({
-                sortDesc: !pos
-            });
-        }
+        
         return (
             <div className="game">
                 <input id="sidebar-toggle" type="checkbox" />
