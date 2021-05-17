@@ -58,7 +58,7 @@ class Game extends Component {
         } else {
             status = "Next player: " + (this.state.xIsNext ? "X" : "O");
         }
-        
+
         if (this.state.sortDesc) {
             moves.reverse();
         }
@@ -80,7 +80,19 @@ class Game extends Component {
                 </li>
             );
         });
-        
+        const jumpTo = (step) => {
+            const next = step % 2 === 0;
+            this.setState({
+                stepNumber: step,
+                xIsNext: next
+            });
+        }
+
+        const handleClickOnSorting = (pos) => {
+            this.setState({
+                sortDesc: !pos
+            });
+        }
         return (
             <div className="game">
                 <div className="game-board-wrapper">
