@@ -5,7 +5,7 @@ class Square extends Component {
     render() { 
         return (
             <button className={"square" + (this.props.isWinner ? " winner" : "")}
-                onClick={this.props.onClickEvent}>
+                onClick={this.props.onClick}>
                 {this.props.value} 
             </button>
         );
