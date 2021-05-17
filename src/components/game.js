@@ -95,7 +95,16 @@ class Game extends Component {
         }
         return (
             <div className="game">
-                <input id="sidebar-toggle" type="checkbox"  />
+                <input id="sidebar-toggle" type="checkbox" />
+                <div className="game-control">
+                    <div>
+                        <span className="game-control-info">{status}</span>
+                        <label htmlFor="sidebar-toggle" className="more-button">
+                            <span>moves</span>
+                            <span>close</span>
+                        </label>
+                    </div>
+                </div>
                 <div className="game-board-wrapper">
                     <Board
                         className={"game-board" + (Draw ? " draw" : "")}
