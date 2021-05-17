@@ -55,7 +55,12 @@ class Game extends Component {
             </div>
         );
     }
+}
 
+function calculateMovePosition(i) {
+    const row = Math.floor(i / 3) + 1;
+    const col = (i % 3) + 1;
+    return [row, col];
 }
 function calculateWinner(squares) {
     const lines = [
