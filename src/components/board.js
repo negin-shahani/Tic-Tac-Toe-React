@@ -23,17 +23,24 @@ const Board = () => {
         setSquars(newSquare);
         setX(!X);
     }
-    const renderSquare = (i) => {
-        return (
-            <Square value={squars[i]}
-                onClickEvent={() => { handleClickEvent(i) }}
-            />
-        );
-    }
     const winner = calculateWinner(squars);
     const status = winner ?
         `Winner : ${winner}` :
         `Next player : ${X ? 'X' : 'O'}`
+
+
+
+
+    const renderSquare = (i,iswinner) => {
+        return (
+            <Square 
+                value={squars[i]}
+                onClickEvent={() => { handleClickEvent(i) }}
+                isWinner={isWinner}
+            />
+        );
+    }
+    
     return (
         <div className="" >
             <div className="status" >{status}</div>
