@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Board from './board'
 import './components.css'
+import Sort from './sort'
 
 class Game extends Component {
     constructor(props) {
@@ -112,6 +113,16 @@ class Game extends Component {
                         line={line}
                         onClick={i => this.handleClick(i)}
                     />
+                </div>
+                <div className="game-sidebar">
+                    <div className="game-sidebar-status">
+                        {status}
+                        <Sort
+                            position={this.state.sortDesc}
+                            onClick={() => this.handleClickOnSorting(this.state.sortDesc)}
+                        />
+                    </div>
+                    <ul>{moves}</ul>
                 </div>
             </div>
         );
