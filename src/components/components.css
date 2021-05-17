@@ -40,6 +40,24 @@ body{
   .sort-button svg path.primary {
     fill: white;
   }
+  #sidebar-toggle {
+    display: none;
+  }
+  #sidebar-toggle:checked ~ .game-board-wrapper {
+    padding-right: 0;
+  }
+  #sidebar-toggle:checked ~ .game-sidebar {
+    right: -280px;
+  }
+  #sidebar-toggle:checked ~ .game-control .game-control-info {
+    opacity: 0.5;
+  }
+  #sidebar-toggle:checked ~ .game-control .more-button span:nth-child(1) {
+    opacity: 1;
+  }
+  #sidebar-toggle:checked ~ .game-control .more-button span:nth-child(2) {
+    opacity: 0;
+  }
 .game{
     position: relative;
     display: flex;
