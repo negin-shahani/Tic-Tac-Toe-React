@@ -26,6 +26,12 @@ body{
     outline: none;
     background-color: #222;
 }
+.square.winner {
+    position: relative;
+    z-index: 1;
+    background-color: #171717;
+    border-color: #be33ff;
+  }
 .status{
     margin: 20px;
     font-size: 24px;
