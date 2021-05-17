@@ -68,9 +68,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #444;
+
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     color: white;
-    border: 1px solid #999;
+    border: 3px solid #999;
     padding: 0;
     font-size: 84px;
     font-weight: bold;
@@ -85,12 +87,12 @@ body{
   }
 .square:focus{
     outline: none;
-    background-color: #222;
 }
 .square.winner {
     position: relative;
     z-index: 1;
-    background-color: #171717;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, purple 100%);
     border-color: #be33ff;
   }
 .status{
