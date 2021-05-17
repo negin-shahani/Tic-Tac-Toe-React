@@ -1,7 +1,9 @@
 import React, { Component} from 'react'
 import Board from './board'
 import './components.css'
-class Square extends Component {
+
+class Game extends Component {
+
     render() {
         return (
             <div className="game">
@@ -12,4 +14,4 @@ class Square extends Component {
     }
 
 }
-export default Square;
+export default Game;
