@@ -3,34 +3,7 @@ import Square from './square'
 import './components.css'
 
 class Board extends Component {
-    // const initialSquars = [
-    //     null, null, null,
-    //     null, null, null,
-    //     null, null, null,
-    // ]
-    // // const initialSquars = Array(9).fill(null);
-    // const [squars, setSquars] = useState(initialSquars);
-    // const [X, setX] = useState(true);
-
-    // const handleClickEvent = (i) => {
-    //     const newSquare = [...squars];
-    //     const winnerDeclared = Boolean(calculateWinner(newSquare));
-    //     const squareFilled = Boolean(newSquare[i]);
-    //     if (winnerDeclared || squareFilled) {
-    //         return;
-    //     }
-    //     newSquare[i] = X ? 'X' : 'O';
-    //     setSquars(newSquare);
-    //     setX(!X);
-    // }
-    // const winner = calculateWinner(squars);
-    // const status = winner ?
-    //     `Winner : ${winner}` :
-    //     `Next player : ${X ? 'X' : 'O'}`
-
-
-
-
+    
     renderSquare(i, iswinner) {
         return (
             <Square
