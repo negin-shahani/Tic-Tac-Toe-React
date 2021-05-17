@@ -37,23 +37,40 @@ const Board = () => {
                 value={squars[i]}
                 key={"square-" + i}
                 onClickEvent={() => { handleClickEvent(i) }}
-                isWinner={isWinner}
+                isWinner={iswinner}
             />
         );
     }
     
+    const createBoard = () =>{
+        let rows = [];
+    
+        for (let i = 1; i < 4; i++) {
+          let col = [];
+    
+          for (let j = 1; j < 4; j++) {
+            const index = i * 3 + j - 4;
+            let isWinner = false;
+    
+            if (Array.isArray(this.props.line) && this.props.line.includes(index)) {
+              isWinner = true;
+            }
+            col.push(this.renderSquare(index, isWinner));
+          }
+          rows.push(
+            <div key={"row-" + i} className="board-row">
+              {col}
+            </div>
+          );
+        }
+    
+        return rows;
+      }
+
     return (
         <div className="" >
             <div className="status" >{status}</div>
-            <div className="board-row">
-                {renderSquare(0)} {renderSquare(1)} {renderSquare(2)}
-            </div>
-            <div className="board-row">
-                {renderSquare(3)} {renderSquare(4)} {renderSquare(5)}
-            </div>
-            <div className="board-row">
-                {renderSquare(6)} {renderSquare(7)} {renderSquare(8)}
-            </div>
+            <div className={this.props.className}>{this.createBoard()}</div>
         </div>
     );
 };
