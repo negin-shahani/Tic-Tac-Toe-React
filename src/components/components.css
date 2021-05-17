@@ -12,6 +12,63 @@ body{
     margin:20px;
     font-family: 32px "Century Gothic" , Futura , sans-serif;
 }
+.game-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    width: 280px;
+    padding: 20px 0;
+    font-size: 0.9375em;
+    background-color: #1d1d1d;
+    color: white;
+    overflow-y: auto;
+    transition: right 0.2s;
+  }
+  @media (max-width: 767px) {
+    .game-sidebar {
+      background-color: rgba(29, 29, 29, 0.7);
+    }
+  }
+  .game-sidebar ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  .game-sidebar ul li {
+    margin-bottom: 4px;
+  }
+  .game-sidebar ul li button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 11.5px 18px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .game-sidebar ul li button:focus {
+    outline: none;
+  }
+  .game-sidebar ul li button span {
+    margin-left: 10px;
+    font-size: 0.7em;
+    opacity: 0.8;
+  }
+  .game-sidebar ul li:not(.active) button:hover, .game-sidebar ul li:not(.active) button:focus {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.6);
+    transition-duration: 0s;
+  }
+  .game-sidebar li.active button {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    opacity: 1;
+  }
 .sort-button {
     display: flex;
     justify-content: space-around;
