@@ -47,13 +47,25 @@ class Game extends Component {
         const winner = calculateWinner(current.squares);
         let Draw = isDraw(current.squares);
 
+        let status;
+        let line;
+        if (winner) {
+            status = "Winner: " + winner.winner;
+            line = winner.line;
+            Draw = false;
+        } else if (Draw) {
+            status = "Draw!";
+        } else {
+            status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+        }
+
         return (
             <div className="game">
                 Tic Tac Toe
                 <Board
                     // className={"game-board" + (isDraw ? " draw" : "")}
                     squares={current.squares}
-                    // line={line}
+                    line={line}
                     onClick={i => this.handleClick(i)}
                 />
             </div>
