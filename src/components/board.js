@@ -2,8 +2,10 @@ import React, { Component, useState } from 'react'
 import Square from './square'
 import './components.css'
 
+import Grid from '@material-ui/core/Grid';
+
 class Board extends Component {
-    
+
     renderSquare(i, iswinner) {
         return (
             <Square
@@ -41,9 +43,12 @@ class Board extends Component {
     }
     render() {
         return (
-            <div className="" >
-                {/* <div className="status" >{status}</div> */}
-                <div className={this.props.className}>{this.createBoard()}</div>
+            <div className={this.props.className} >
+                <Grid container>
+                    <Grid item xs={12} >
+                        {this.createBoard()}
+                    </Grid>
+                </Grid>
             </div>
         );
     }
