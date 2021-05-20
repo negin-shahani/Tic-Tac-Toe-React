@@ -3,6 +3,10 @@ import Board from './board'
 import './components.css'
 import Sort from './sort'
 
+import { Alert, AlertTitle } from '@material-ui/lab';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+
 class Game extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +19,8 @@ class Game extends Component {
             ],
             stepNumber: 0,
             xIsNext: true,
-            sortDesc: false
+            sortDesc: false,
+            showError: false
         };
     }
     handleClick(i) {
@@ -26,6 +31,9 @@ class Game extends Component {
         const winnerDeclared = Boolean(calculateWinner(squares));
         const squareFilled = Boolean(squares[i]);
         if (winnerDeclared || squareFilled) {
+            this.setState({
+                showError: true
+            });
             return;
         }
 
@@ -42,18 +50,44 @@ class Game extends Component {
             xIsNext: !this.state.xIsNext
         });
     }
-    jumpTo (step){
+    jumpTo(step) {
         const next = step % 2 === 0;
         this.setState({
             stepNumber: step,
             xIsNext: next
         });
     }
-    handleClickOnSorting (pos){
+    handleClickOnSorting(pos) {
         this.setState({
             sortDesc: !pos
         });
     }
+    
+    hideShowError(){
+        this.setState({
+            showError: false
+        });
+    }
+    DescriptionAlerts() {
+        return (
+            <Alert severity="error"
+                action={
+                    <IconButton
+                        aria-label="close"
+                        color="inherit"
+                        size="small"
+                        onClick={() => {
+                            this.hideShowError()
+                        }}
+                    >
+                        <CloseIcon fontSize="inherit" />
+                    </IconButton>
+                }>
+                <AlertTitle>Error: you should pick the empty squares!</AlertTitle>  
+            </Alert>
+        );
+    }
+    
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
@@ -72,7 +106,7 @@ class Game extends Component {
             status = "Next player: " + (this.state.xIsNext ? "X" : "O");
         }
 
-        
+
         const moves = history.map((moveArray, moveindex) => {
             const lable = moveindex ? `Go to move #${moveindex}` : "Go to game start";
             const colRowInfo = moveArray.lastMove[0]
@@ -94,9 +128,9 @@ class Game extends Component {
         if (this.state.sortDesc) {
             moves.reverse();
         }
-        
         return (
             <div className="game">
+                {this.state.showError ? <div>{this.DescriptionAlerts()}</div> : null}
                 <input id="sidebar-toggle" type="checkbox" />
                 <div className="game-control">
                     <div>
