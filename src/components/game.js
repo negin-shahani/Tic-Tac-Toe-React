@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import blue from '@material-ui/core/colors/blue';
+import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 
 
 class Game extends Component {
@@ -144,7 +146,9 @@ class Game extends Component {
                         <SportsEsportsIcon fontSize="inherit" />
                     </Typography>
                     <Typography variant="headline" className="Help" align="center">
-                        
+                        <Link style={{fontSize:20 , color:"white"}} href="https://en.wikipedia.org/wiki/Tic-tac-toe">
+                            How to play <LiveHelpIcon fontSize="inherit" />
+                        </Link>
                     </Typography>
                     <input id="sidebar-toggle" type="checkbox" />
                     <div className="game-control">

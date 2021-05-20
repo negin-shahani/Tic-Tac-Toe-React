@@ -23,6 +23,9 @@ body{
   font-family: 'Pacifico', cursive !important;
   font-size:70px;
 }
+.help {
+  font-size:70px;
+}
 .game-sidebar {
     position: fixed;
     top: 0;
