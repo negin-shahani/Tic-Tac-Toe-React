@@ -15,6 +15,9 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import blue from '@material-ui/core/colors/blue';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import RefreshIcon from '@material-ui/icons/Refresh';
 
 
 class Game extends Component {
@@ -146,9 +149,19 @@ class Game extends Component {
                         <SportsEsportsIcon fontSize="inherit" />
                     </Typography>
                     <Typography variant="headline" className="Help" align="center">
-                        <Link style={{fontSize:20 , color:"white"}} href="https://en.wikipedia.org/wiki/Tic-tac-toe">
+                        <Link style={{ fontSize: 20, color: "white" }} href="https://en.wikipedia.org/wiki/Tic-tac-toe">
                             How to play <LiveHelpIcon fontSize="inherit" />
                         </Link>
+                    </Typography>
+                    <Typography variant="headline" align="center">
+                        <Button
+                            style = {{marginTop : 20 , color: "purple" ,backgroundColor:"white"}}
+                            variant="contained"
+                            size="large"
+                            endIcon={<RefreshIcon />}
+                        >
+                            Restart
+                        </Button>
                     </Typography>
                     <input id="sidebar-toggle" type="checkbox" />
                     <div className="game-control">
