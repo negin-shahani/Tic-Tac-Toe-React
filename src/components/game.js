@@ -6,6 +6,7 @@ import Sort from './sort'
 import { Alert, AlertTitle } from '@material-ui/lab';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
@@ -138,6 +139,11 @@ class Game extends Component {
         return (
             <div>
                 <div className="game">
+                    <Typography variant="headline" className="Header" align="center">
+                        Tic Tac Toe
+                        <SportsEsportsIcon fontSize="inherit" />
+                    </Typography>
+
                     <input id="sidebar-toggle" type="checkbox" />
                     <div className="game-control">
                         <div>
