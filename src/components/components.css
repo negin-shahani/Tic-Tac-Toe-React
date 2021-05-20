@@ -93,7 +93,7 @@ body{
     font-size: 1em;
     opacity: 0;
     transition: opacity 0.2s;
-    color: rgba(148,187,233,1);
+    color: purple;
     font-weight: bold;
 
   }
