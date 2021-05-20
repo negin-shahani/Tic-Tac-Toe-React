@@ -143,7 +143,9 @@ class Game extends Component {
                         Tic Tac Toe
                         <SportsEsportsIcon fontSize="inherit" />
                     </Typography>
-
+                    <Typography variant="headline" className="Help" align="center">
+                        
+                    </Typography>
                     <input id="sidebar-toggle" type="checkbox" />
                     <div className="game-control">
                         <div>
