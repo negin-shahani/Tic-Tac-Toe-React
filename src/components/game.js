@@ -63,6 +63,24 @@ class Game extends Component {
             xIsNext: !this.state.xIsNext
         });
     }
+    restart(){
+        this.setState({
+            history: [
+                {
+                    squares : [
+                        null, null, null,
+                        null, null, null,
+                        null, null, null,
+                    ] ,
+                    lastMove : [null, null]
+                }
+            ],
+            stepNumber: 0,
+            xIsNext: true,
+            sortDesc: false,
+            showError: false
+          })
+    }
     jumpTo(step) {
         const next = step % 2 === 0;
         this.setState({
@@ -100,7 +118,7 @@ class Game extends Component {
             </Alert>
         );
     }
-
+    
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
@@ -159,6 +177,7 @@ class Game extends Component {
                             variant="contained"
                             size="large"
                             endIcon={<RefreshIcon />}
+                            onClick={() => this.restart()}
                         >
                             Restart
                         </Button>
