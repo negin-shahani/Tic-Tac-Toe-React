@@ -7,6 +7,30 @@ import { Alert, AlertTitle } from '@material-ui/lab';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import Link from '@material-ui/core/Link';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+    },
+    main: {
+        marginTop: theme.spacing(8),
+        marginBottom: theme.spacing(2),
+    },
+    footer: {
+        padding: theme.spacing(3, 2),
+        marginTop: 'auto',
+        backgroundColor:
+            theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+    },
+}));
+
 class Game extends Component {
     constructor(props) {
         super(props);
@@ -62,8 +86,8 @@ class Game extends Component {
             sortDesc: !pos
         });
     }
-    
-    hideShowError(){
+
+    hideShowError() {
         this.setState({
             showError: false
         });
@@ -83,11 +107,11 @@ class Game extends Component {
                         <CloseIcon fontSize="inherit" />
                     </IconButton>
                 }>
-                <AlertTitle>Error: you should pick the empty squares!</AlertTitle>  
+                <AlertTitle>Error: you should pick the empty squares!</AlertTitle>
             </Alert>
         );
     }
-    
+
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
@@ -129,37 +153,45 @@ class Game extends Component {
             moves.reverse();
         }
         return (
-            <div className="game">
-                
-                <input id="sidebar-toggle" type="checkbox" />
-                <div className="game-control">
-                    <div>
-                        <span className="game-control-info">{status}</span>
-                        <label htmlFor="sidebar-toggle" className="more-button">
-                            <span>moves</span>
-                            <span>close</span>
-                        </label>
+            <div>
+                <div className="game">
+                    <input id="sidebar-toggle" type="checkbox" />
+                    <div className="game-control">
+                        <div>
+                            <span className="game-control-info">{status}</span>
+                            <label htmlFor="sidebar-toggle" className="more-button">
+                                <span>moves</span>
+                                <span>close</span>
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <div className="game-board-wrapper">
-                    <Board
-                        className={"game-board" + (Draw ? " draw" : "")}
-                        squares={current.squares}
-                        line={line}
-                        onClick={i => this.handleClick(i)}
-                    />
-                </div>
-                <div className="game-sidebar">
-                    <div className="game-sidebar-status">
-                        {status}
-                        <Sort
-                            position={this.state.sortDesc}
-                            onClick={() => this.handleClickOnSorting(this.state.sortDesc)}
+                    <div className="game-board-wrapper">
+                        <Board
+                            className={"game-board" + (Draw ? " draw" : "")}
+                            squares={current.squares}
+                            line={line}
+                            onClick={i => this.handleClick(i)}
                         />
                     </div>
-                    <ul>{moves}</ul>
+                    <div className="game-sidebar">
+                        <div className="game-sidebar-status">
+                            {status}
+                            <Sort
+                                position={this.state.sortDesc}
+                                onClick={() => this.handleClickOnSorting(this.state.sortDesc)}
+                            />
+                        </div>
+                        <ul>{moves}</ul>
+                    </div>
+                    {this.state.showError ? <div>{this.DescriptionAlerts()}</div> : null}
+
                 </div>
-                {this.state.showError ? <div>{this.DescriptionAlerts()}</div> : null}
+                <footer className="footer">
+                    <Container maxWidth="sm">
+                        <Typography variant="body1">My sticky footer can be found here.</Typography>
+                        <Copyright />
+                    </Container>
+                </footer>
             </div>
         );
     }
@@ -189,5 +221,17 @@ function calculateWinner(squares) {
         }
     }
     return null;
+}
+function Copyright() {
+    return (
+        <Typography variant="body2" color="textSecondary">
+            {'Copyright © '}
+            <Link color="inherit" href="https://material-ui.com/">
+                Your Website
+        </Link>{' '}
+            {new Date().getFullYear()}
+            {'.'}
+        </Typography>
+    );
 }
 export default Game;
