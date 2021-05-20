@@ -130,7 +130,7 @@ class Game extends Component {
         }
         return (
             <div className="game">
-                {this.state.showError ? <div>{this.DescriptionAlerts()}</div> : null}
+                
                 <input id="sidebar-toggle" type="checkbox" />
                 <div className="game-control">
                     <div>
@@ -159,6 +159,7 @@ class Game extends Component {
                     </div>
                     <ul>{moves}</ul>
                 </div>
+                {this.state.showError ? <div>{this.DescriptionAlerts()}</div> : null}
             </div>
         );
     }
