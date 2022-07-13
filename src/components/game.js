@@ -25,6 +25,12 @@ import io from 'socket.io-client';
 const io = require("socket.io-client");
 const socket = io(); //if it doesnt work, add (process.env.REACT_APP_WS_SERVER)
 
+const location = useLocation();
+const params = new URLSearchParams(location.search);
+const paramsRoom = params.get('room');
+this.setState({
+    room: paramsRoom
+});
 
 class Game extends Component {
     constructor(props) {
