@@ -19,6 +19,12 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import RefreshIcon from '@material-ui/icons/Refresh';
 
+import { useLocation } from 'react-router';
+import io from 'socket.io-client';
+
+const io = require("socket.io-client");
+const socket = io(); //if it doesnt work, add (process.env.REACT_APP_WS_SERVER)
+
 
 class Game extends Component {
     constructor(props) {
