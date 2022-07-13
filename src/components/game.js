@@ -47,11 +47,30 @@ class Game extends Component {
             sortDesc: false,
             showError: false,
             room: '',
-            username: ''
+            username: '',
+            myturn: true
         };
     }
     componentDidMount(){
-        //still in process
+        //if it is the second player and we already have a room
+        if(paramsRoom){
+            this.socket.emit('join', paramsRoom, username);
+            this.setState({
+                room: paramsRoom,
+                myturn: false,
+                xIsNext: false
+            });
+        }
+        //if it is the first player and we gonna make a new room
+        else{
+            const roomID = random();
+            this.socket.emit('join', paramsRoom, username);
+            this.setState({
+                room: paramsRoom,
+                myturn: true,
+                xIsNext: true
+            });
+        }
     }
 
     handleClick(i) {
@@ -280,7 +299,7 @@ function Copyright() {
         </Typography>
     );
 }
-
+//Generate a random string for room ID
 function random(){
     return Array.from(Array(8), () => Math.floor(Math.random() * 36).toString(36)).join('');
 }
