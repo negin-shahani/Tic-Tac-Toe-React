@@ -64,7 +64,7 @@ class Game extends Component {
         //if it is the first player and we gonna make a new room
         else{
             const roomID = random();
-            this.socket.emit('join', paramsRoom, username);
+            this.socket.emit('join', roomID, username);
             this.setState({
                 room: paramsRoom,
                 myturn: true,
