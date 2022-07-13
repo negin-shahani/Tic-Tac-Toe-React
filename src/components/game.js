@@ -33,7 +33,9 @@ class Game extends Component {
             stepNumber: 0,
             xIsNext: true,
             sortDesc: false,
-            showError: false
+            showError: false,
+            room: '',
+            username: ''
         };
     }
     handleClick(i) {
