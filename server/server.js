@@ -12,7 +12,7 @@ io.on("connection", (socket) => {
     
     socket.on('join', function (roomName, userName) {
 
-        const admin = users.filter(user => (user.admin === true) && (user.room === roomName));
+        const admin = users.filter(user => (user.admin === true) && (user.roomName === roomName));
 
         if (admin.length > 0) {
 
@@ -26,7 +26,7 @@ io.on("connection", (socket) => {
                 'roomName': roomName,
             });
 
-            socket.join(room);
+            socket.join(roomName);
 
             socket.emit('newJoin', socket.id);
         }
