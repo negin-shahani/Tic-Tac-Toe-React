@@ -50,6 +50,10 @@ class Game extends Component {
             username: ''
         };
     }
+    componentDidMount(){
+        //still in process
+    }
+
     handleClick(i) {
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[history.length - 1];
@@ -276,4 +280,9 @@ function Copyright() {
         </Typography>
     );
 }
+
+function random(){
+    return Array.from(Array(8), () => Math.floor(Math.random() * 36).toString(36)).join('');
+}
+
 export default Game;
